@@ -96,3 +96,4 @@ This project demonstrates practical ML engineering skills beyond model design:
 ---
 
 ## 👨‍💻 Author
+Purv Patel
