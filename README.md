@@ -1,25 +1,27 @@
-# CNN Image Classifier with Parallel Compute Optimization
+# 🧠 CNN Image Classifier with Parallel Computing using LENET model
 
-A deep-learning image classification project focused on **both prediction quality and runtime efficiency**.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras-FF6F00)
+![Notebook](https://img.shields.io/badge/Environment-Jupyter%20%7C%20Colab-orange)
+![Task](https://img.shields.io/badge/Task-Binary%20Image%20Classification-green)
+![Compute](https://img.shields.io/badge/Benchmark-CPU%20vs%20GPU%20vs%20Threads-purple)
 
-This project implements a Convolutional Neural Network (CNN) for binary image classification and benchmarks training performance across multiple execution setups (CPU, GPU, and CPU multithreading). The core goal is to understand how parallel compute configurations impact speed and model behavior.
+A practical deep-learning project that combines **binary image classification** with **performance engineering**.
 
----
-
-## Project Summary
-
-- Built a CNN-based binary image classification pipeline using TensorFlow/Keras.
-- Performed data loading, reshaping to image tensors, normalization, training, and inference.
-- Compared execution time and model outcomes across:
-  - CPU (1 thread)
-  - GPU
-  - CPU (2 threads)
-  - CPU (4 threads)
-- Measured significant runtime acceleration with parallel approaches while maintaining/improving classification performance.
+This repository trains a CNN classifier and compares execution time and model behavior across 4 compute setups: **CPU (1-thread), GPU, CPU (2-thread), and CPU (4-thread)**.
 
 ---
 
-## Key Results
+## 🚀 Project Highlights
+
+- Built an end-to-end CNN classification workflow (load → preprocess → train → infer).
+- Benchmarked runtime across CPU/GPU and thread configurations.
+- Achieved up to **47.2× speedup** over CPU baseline.
+- Improved observed accuracy from **0.75** (CPU baseline) to **0.93** (GPU) and **1.00** (4-thread run).
+
+---
+
+## 📊 Benchmark Results
 
 | Configuration     | Time (s) | Accuracy | Loss   | Speedup vs CPU |
 |-------------------|---------:|---------:|-------:|---------------:|
@@ -28,63 +30,69 @@ This project implements a Convolutional Neural Network (CNN) for binary image cl
 | CPU (2 threads)   | 3.73     | 0.88     | 0.30   | 40.3×          |
 | CPU (4 threads)   | 3.19     | 1.00     | 0.001  | 47.2×          |
 
-### Highlights
+### Key Takeaways
 
-- Runtime reduced from **150.54s (CPU)** to **3.19s (4-thread CPU)**.
-- Achieved up to **47.2× speedup** over the CPU baseline.
-- Accuracy improved from **0.75** baseline to **0.93 (GPU)** and **1.00 (4-thread run)**.
-
----
-
-## Repository Structure
-
-- `CAO_cpu.ipynb` — baseline CPU experiment
-- `CAO_gpu.ipynb` — GPU-accelerated experiment
-- `CAO_2thread.ipynb` — CPU experiment with 2 threads
-- `CAO_4thread.ipynb` — CPU experiment with 4 threads
-- `imageClassifer.pdf` — project report/documentation
+- **Fastest setup:** CPU (4-thread) at **3.19s**.
+- **Most balanced setup:** GPU with strong speed (**4.08s**) + high accuracy (**0.93**).
+- **Performance lesson:** Compute configuration can influence iteration speed as much as architecture tuning.
 
 ---
 
-## Tech Stack
+## 🧩 Repository Structure
 
-- Python
-- TensorFlow / Keras
-- NumPy
-- Pandas
-- Matplotlib
-- Jupyter Notebook / Google Colab
+```text
+CNN_ImageClassifier/
+├── CAO_cpu.ipynb        # Baseline CPU experiment
+├── CAO_gpu.ipynb        # GPU experiment
+├── CAO_2thread.ipynb    # CPU with 2-thread experiment
+├── CAO_4thread.ipynb    # CPU with 4-thread experiment
+├── imageClassifer.pdf   # Project report / documentation
+└── README.md            # Project documentation
+```
 
 ---
 
-## Methodology
+## 🏗️ Methodology
 
-1. Load tabular image data and labels from CSV files.
-2. Reshape input vectors to `(100, 100, 3)` image tensors.
+1. Load training and testing CSV data.
+2. Reshape vectors into image tensors of shape **(100, 100, 3)**.
 3. Normalize pixel values.
-4. Define and compile CNN architecture for binary classification.
-5. Train model with fixed epochs and batch size.
-6. Measure execution time and compare performance across hardware/thread configurations.
+4. Build CNN model for binary classification.
+5. Train using fixed epochs and batch size.
+6. Repeat experiments under different compute/thread configurations.
+7. Compare runtime, accuracy, and loss.
 
 ---
 
-## Practical Takeaways
+## ⚙️ Tech Stack
 
-- Parallel strategy can drastically reduce training time without changing the dataset.
-- Hardware-aware experimentation is critical for efficient ML workflows.
-- Performance engineering (threads/GPU) can be as impactful as model tuning.
-
----
-
-## Future Improvements
-
-- Add reproducible train/validation split and unified metrics logging.
-- Include confusion matrix, precision, recall, and F1 score.
-- Add scripted pipeline (`.py`) for non-notebook execution.
-- Evaluate robustness and potential overfitting of the 4-thread configuration.
+- **Language:** Python
+- **Deep Learning:** TensorFlow / Keras
+- **Data Handling:** NumPy, Pandas
+- **Visualization:** Matplotlib
+- **Environment:** Jupyter Notebook, Google Colab
 
 ---
 
-## Author
+## 📌 Why This Project Matters
 
-Purv Patel
+This project demonstrates practical ML engineering skills beyond model design:
+
+- Model training workflow design
+- Hardware-aware benchmarking
+- Runtime optimization using parallel strategies
+- Performance-driven experiment reporting
+
+---
+
+## 🔮 Future Improvements
+
+- Add train/validation split with reproducible seeds.
+- Track precision, recall, F1-score, and confusion matrix.
+- Convert notebook workflow into modular Python scripts.
+- Add experiment logging (e.g., MLflow/W&B) for reproducibility.
+- Evaluate overfitting risk for perfect-accuracy runs.
+
+---
+
+## 👨‍💻 Author
