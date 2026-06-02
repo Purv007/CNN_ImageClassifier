@@ -28,7 +28,7 @@ This repository trains a CNN classifier and compares execution time and model be
 | CPU (1 thread)    | 150.54   | 0.75     | 0.49   | 1.0×           |
 | GPU               | 4.08     | 0.93     | 0.18   | 36.9×          |
 | CPU (2 threads)   | 3.73     | 0.88     | 0.30   | 40.3×          |
-| CPU (4 threads)   | 3.19     | 1.00     | 0.001  | 47.2×          |
+| CPU (4 threads)   | 3.19     | 0.98     | 0.001  | 47.2×          |
 
 ### Key Takeaways
 
